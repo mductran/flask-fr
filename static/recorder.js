@@ -46,10 +46,3 @@ buttonStop.onclick = function() {
     xhr.send(JSON.stringify({ status: "false" }));
 };
 
-function playVideo() {
-    var video = document.getElementById("video");
-    video.src = "/video_viewer?" + new Date().getTime();
-}
-
-setInterval(playVideo, 30);
-
