@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+
+<style type="text/css">
+
+h1{
+    margin-top:30px;
+    color:#4b78c1;
+    font-size:24px;
+}
+
+form{
+    padding:10px;
+}
+
+input[type="submit"]{
+    color:#899ec1;
+    padding:8px;
+    border-radius:6px;
+    border:1px #899ec1 solid;
+    background-color:#ffffff;
+}
+input[type="submit"]:hover{
+    color:#576275;
+    padding:8px;
+    border-radius:6px;
+    border:1px #576275 solid;
+    cursor:pointer;
+}
+
+#record{
+    padding:8px;
+    border-radius:6px;
+    border:1px #899ec1 solid;
+    background-color:#ffffff;
+}
+
+#stop{
+    padding:8px;
+    border-radius:6px;
+    border:1px #899ec1 solid;
+    background-color:#ffffff;
+}
+
+
+
+input[type="file"]{
+    color:#899ec1;
+    padding:6px;
+    border-radius:6px;
+    border:1px #899ec1 solid;
+    background-color:#ffffff;
+}
+input[type="file"]:hover{
+    color:#576275;
+    padding:6px;
+    border-radius:6px;
+    border:1px #576275 solid;
+    cursor:pointer;
+}
+
+</style>
+
+
+<html>
+    <head>
+        <title>Streaming Video Recorder</title>
+    </head>
+
+    <body>
+        <div align="center">
+            <h1> <span style="border-bottom: 1px solid blue"> Streaming Video Recorder </span> </h1>
+        </div>
+
+        <div align="center">
+            <img id="video" src="{{ url_for('video_viewer') }}" align="center">
+
+
+            <div id="recorder" align="float: left">
+                <button id="record">Record</button>
+                <button id="stop">Stop</button>
+            </div>
+
+            <a id="download"></a>
+            <script type="text/javascript" src="{{ url_for('static', filename='recorder.js') }}"></script>
+        </div>
+
+        <div align="center">
+            <form method="POST" id="eid">
+                <input name="EID">
+                <input type="submit">
+            </form>
+        </div>
+
+        <form action="switch_page" method="POST" enctype="multipart/form-data">
+            <input type="submit" value="Train Classifier" onclick="train()/">
+        </form>
+        <form action="switch_page" method="POST" enctype="multipart/form-data">
+            <input type="submit" value="Test Classifier" onclick="switch()/">
+        </form>
+
+
+
+    </body>
+
+</html>
